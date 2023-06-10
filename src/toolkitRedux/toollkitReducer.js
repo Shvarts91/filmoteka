@@ -1,80 +1,12 @@
-import { createReducer, createAction } from '@reduxjs/toolkit'
+import {createAction, createAsyncThunk, createSlice} from '@reduxjs/toolkit'
 
 const initialState = {
-  count: 0,
-  todoFilms: [
-    {
-      id: 1,
-      title: 'Fast',
-      discription: 'cool film, created 20 may 2004',
+    error: null,
+    loading: false,
+    todoFilms: [],
+    pageSize: 9, currentPage: 1, currentFilm: {
+        title: '', createYear: '', duration: '', actors: '',
     },
-    {
-      id: 2,
-      title: 'Fast2',
-      discription: 'cool film, created 20 may 2004',
-    },
-    {
-      id: 3,
-      title: 'Fast3',
-      discription: 'cool film, created 20 may 2004',
-    },
-    {
-      id: 4,
-      title: 'Fast4',
-      discription: 'cool film, created 20 may 2004',
-    },
-    {
-      id: 1,
-      title: 'Fast',
-      discription: 'cool film, created 20 may 2004',
-    },
-    {
-      id: 2,
-      title: 'Fast2',
-      discription: 'cool film, created 20 may 2004',
-    },
-    {
-      id: 3,
-      title: 'Fast3',
-      discription: 'cool film, created 20 may 2004',
-    },
-    {
-      id: 4,
-      title: 'Fast4',
-      discription: 'cool film, created 20 may 2004',
-    },
-    {
-      id: 1,
-      title: 'Fast',
-      discription: 'cool film, created 20 may 2004',
-    },
-    {
-      id: 2,
-      title: 'Fast2',
-      discription: 'cool film, created 20 may 2004',
-    },
-    {
-      id: 3,
-      title: 'Fast3',
-      discription: 'cool film, created 20 may 2004',
-    },
-    {
-      id: 4,
-      title: 'Fast4',
-      discription: 'cool film, created 20 may 2004',
-    },
-  ],
-  pageSize: 9,
-  currentPage: 1,
-  discriptionForFilm: {
-    title: '',
-    createYear: '',
-    duration: '',
-    actors: '',
-  },
-  //   isFetching: false,
-  //   followingProgress: [],
-  //   totalItemsCount: 0,
 }
 
 export const setFilms = createAction('SET_FILMS')
@@ -83,19 +15,27 @@ export const searchFilms = createAction('SEARCH_FILMS')
 
 export const descriptionFilm = createAction('DESCRIPTION_FILM')
 
-export default createReducer(initialState, (builder) => {
-  builder.addCase(
-    setFilms,
-    (state, action) => {
-      state.todoFilms = setFilms
-    },
-    searchFilms,
-    (state, action) => {
-      state.todoFilms.title = searchFilms
-    },
-    descriptionFilm,
-    (state, action) => {
-      state.descriptionFilm = descriptionFilm
-    }
-  )
+export const fetchMovies = createAsyncThunk('movies/fetchMovies', async (userId, thunkAPI) => {
+    const response = await fetch('https://api.themoviedb.org/3/trending/movie/week?api_key=249f222afb1002186f4d88b2b5418b55&page=1')
+    const {results} = await response.json();
+    return results;
 })
+
+const moviesSlice = createSlice({
+    name: 'movies', initialState, extraReducers: builder => {
+        builder
+            .addCase(fetchMovies.pending, (state) => {
+                state.loading = true;
+                state.error = null;
+            })
+            .addCase(fetchMovies.fulfilled, (state, action) => {
+                state.todoFilms = action.payload;
+                state.loading = false;
+            }).addCase(fetchMovies.rejected, (state, action) => {
+            state.loading = false;
+            state.error = action.error.message;
+        });
+    }
+})
+
+export default moviesSlice.reducer

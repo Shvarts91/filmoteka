@@ -1,10 +1,7 @@
 import { combineReducers, configureStore } from '@reduxjs/toolkit'
-import toollkitReducer from './toollkitReducer'
+import movies from './toollkitReducer'
 
-const rootReducer = combineReducers({
-  toolkit: toollkitReducer,
-})
 
 export const store = configureStore({
-  reducer: rootReducer,
+  reducer: {movies},
 })
