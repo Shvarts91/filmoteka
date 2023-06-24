@@ -1,0 +1,33 @@
+.modalBlock {
+}
+
+.info {
+  display: flex;
+  gap: 15px;
+}
+.infoValue {
+  font-style: italic;
+  font-weight: 600;
+}
+
+.aboutTitle {
+  margin: 15px 0 10px 0;
+}
+
+.aboutDescription {
+  line-height: 1.5;
+}
+.blockButtons {
+  display: flex;
+  margin: 15px 0;
+  column-gap: 15px;
+}
+
+.imageLogoBlock {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+.imageLogo {
+  width: 100%;
+}
