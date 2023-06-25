@@ -1,10 +1,10 @@
 import { NavLink } from 'react-router-dom'
 import style from './Header.module.css'
-import { Search } from './Search/Search'
-import { CustomizedSwitches } from './Switch/Switch'
+import { Search } from '../Search/Search'
+import { CustomizedSwitches } from '../Switch/Switch'
 import Stack from '@mui/material/Stack'
 
-function Header() {
+function HeaderHome() {
   return (
     <div className={style.header}>
       <div className={style.headerBlock}>
@@ -24,4 +24,4 @@ function Header() {
   )
 }
 
-export { Header }
+export { HeaderHome }

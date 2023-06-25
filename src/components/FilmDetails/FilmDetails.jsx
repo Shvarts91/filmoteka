@@ -6,8 +6,8 @@ import {
   CardMedia,
 } from '@mui/material'
 import CloseIcon from '@mui/icons-material/Close'
-import style from './Modal.module.css'
-import { ModalButton } from './ModalButton'
+import style from './FilmDetails.module.css'
+import { ModalButton } from './ButtonForAddFilm'
 
 export const FilmModal = ({ open, onClose, currentFilm }) => {
   const {
@@ -88,8 +88,8 @@ export const FilmModal = ({ open, onClose, currentFilm }) => {
             <div className={style.aboutDescription}>{overview}</div>
           </div>
           <div className={style.blockButtons}>
-            <ModalButton id={id} name="WATCHED" />
-            <ModalButton name="ADD TO QUEUE" />
+            <ModalButton id={id} name="WATCHED" keyStorage="watched" />
+            <ModalButton id={id} name="QUEUE" keyStorage="queue" />
           </div>
           <div className={style.imageLogoBlock}>
             {production_companies.map(({ logo_path, id, name }) => {

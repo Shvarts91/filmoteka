@@ -3,9 +3,9 @@ import TextField from '@mui/material/TextField'
 import SearchIcon from '@mui/icons-material/Search'
 import { useDispatch, useSelector } from 'react-redux'
 import { useState } from 'react'
-import { fetchMovies, fetchSearch } from '../../../api/Api'
+import { fetchMovies, fetchSearch } from '../../api/Api'
 import style from './Search.module.css'
-import { setSearchQuery } from '../../../toolkitRedux/toollkitReducer'
+import { setSearchQuery } from '../../toolkitRedux/toollkitReducer'
 
 function Search() {
   const dispatch = useDispatch()

@@ -1,26 +1,28 @@
 import Button from '@mui/material/Button'
 import { useEffect, useState } from 'react'
 
-function ModalButton({ name, id }) {
+function ModalButton({ name, id, keyStorage }) {
   const [hasId, setHasId] = useState(false)
 
   const onClickButton = () => {
     setHasId(!hasId)
-    const data = JSON.parse(localStorage.getItem('watched'))
+
+    console.log(keyStorage)
+    const data = JSON.parse(localStorage.getItem(keyStorage))
     if (data === null) {
-      return localStorage.setItem('watched', JSON.stringify([id]))
+      return localStorage.setItem(keyStorage, JSON.stringify([id]))
     }
 
     if (!data.includes(id)) {
       data.push(id)
-      return localStorage.setItem('watched', JSON.stringify(data))
+      return localStorage.setItem(keyStorage, JSON.stringify(data))
     }
     const updateData = data.filter((el) => el !== id)
-    return localStorage.setItem('watched', JSON.stringify(updateData))
+    return localStorage.setItem(keyStorage, JSON.stringify(updateData))
   }
 
   useEffect(() => {
-    const data = JSON.parse(localStorage.getItem('watched'))
+    const data = JSON.parse(localStorage.getItem(keyStorage))
     if (data.includes(id)) {
       setHasId(true)
     }

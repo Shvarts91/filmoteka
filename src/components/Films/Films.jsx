@@ -1,9 +1,9 @@
 import { useDispatch, useSelector } from 'react-redux'
 import { useEffect, useState } from 'react'
 import { fetchFilmById, fetchGenres, fetchMovies } from '../../api/Api'
-import { Film } from './Film/Film'
+import { Film } from '../Film/Film'
 import style from './Films.module.css'
-import { FilmModal } from './Film/ModalWindow/Modal'
+import { FilmModal } from '../FilmDetails/FilmDetails'
 
 function Films() {
   const dispatch = useDispatch()
