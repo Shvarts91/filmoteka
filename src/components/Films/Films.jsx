@@ -7,7 +7,7 @@ import { FilmModal } from '../FilmDetails/FilmDetails'
 
 function Films() {
   const dispatch = useDispatch()
-  const { films, genres, currentFilm, error } = useSelector(
+  const { films, genres, currentFilm, error, searchQuery } = useSelector(
     ({ movies }) => movies
   )
   const [isOpenModal, setIsOpenModal] = useState(false)
@@ -29,23 +29,21 @@ function Films() {
     <>
       <div className={style.filmsBody}>
         <div className={style.filmsBlock}>
-          {films ? (
-            films.map(({ title, id, poster_path, release_date, genre_ids }) => (
-              <div className={style.filmsElement} key={id}>
-                <Film
-                  title={title}
-                  poster_path={poster_path}
-                  prodaction={release_date}
-                  genres={genre_ids.map((id) => genres[id])}
-                  id={id}
-                  onCardOpen={onClickCard}
-                />
-              </div>
-            ))
-          ) : (
-            <div className={style.error}>{error}</div>
-          )}
+          {films.map(({ title, id, poster_path, release_date, genre_ids }) => (
+            <div className={style.filmsElement} key={id}>
+              <Film
+                title={title}
+                poster_path={poster_path}
+                prodaction={release_date}
+                genres={genre_ids.map((id) => genres[id])}
+                id={id}
+                onCardOpen={onClickCard}
+              />
+            </div>
+          ))}
+          {!films.length && searchQuery && 'No any films by your search query'}
         </div>
+        {error && <div className={style.error}>{error}</div>}
       </div>
       {currentFilm.id && (
         <FilmModal

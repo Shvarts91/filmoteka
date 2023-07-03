@@ -1,5 +1,7 @@
 import Button from '@mui/material/Button'
 import { useEffect, useState } from 'react'
+import { createTheme } from '@mui/material'
+import { red } from '@mui/material/colors'
 
 function ModalButton({ name, id, keyStorage }) {
   const [hasId, setHasId] = useState(false)
@@ -7,7 +9,6 @@ function ModalButton({ name, id, keyStorage }) {
   const onClickButton = () => {
     setHasId(!hasId)
 
-    console.log(keyStorage)
     const data = JSON.parse(localStorage.getItem(keyStorage))
     if (data === null) {
       return localStorage.setItem(keyStorage, JSON.stringify([id]))
@@ -30,7 +31,10 @@ function ModalButton({ name, id, keyStorage }) {
 
   return (
     <div>
-      <Button onClick={onClickButton} variant="outlined">
+      <Button
+        onClick={onClickButton}
+        variant={hasId ? 'contained' : 'outlined'}
+      >
         {!hasId ? `ADD TO ${name}` : `REMOVE FROM ${name}`}
       </Button>
     </div>

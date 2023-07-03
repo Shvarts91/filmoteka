@@ -9,7 +9,9 @@ function HeaderHome() {
     <div className={style.header}>
       <div className={style.headerBlock}>
         <div className={style.headerTop}>
-          <a href="/">FILMOTEKA</a>
+          <a className={style.logo} href="/">
+            FILMOTEKA
+          </a>
           <div className={style.linkHeader}>
             <NavLink to="/">Home</NavLink>
             <NavLink to="/library">My library</NavLink>

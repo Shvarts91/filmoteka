@@ -38,7 +38,7 @@ const {
         state.error = null
       })
       .addCase(fetchMovies.fulfilled, (state, action) => {
-        state.films = action.payload.results
+        state.films = action.payload.results || []
         state.loading = false
         state.totalPages = action.payload.total_pages
         state.totalResults = action.payload.total_results

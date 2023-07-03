@@ -46,7 +46,7 @@ export const FilmModal = ({ open, onClose, currentFilm }) => {
         image={`${pathImage}${poster_path}`}
         alt="image film"
       />
-      <div>
+      <div className={style.infoBlock}>
         <DialogTitle fontSize={32} fontWeight={700} data-e2e="group-name">
           {title}
           <IconButton
@@ -80,7 +80,7 @@ export const FilmModal = ({ open, onClose, currentFilm }) => {
             </span>
           </div>
           <div className={style.info}>
-            <span>Original title:</span>
+            <span>Original title</span>
             <span className={style.infoValue}>{original_title}</span>
           </div>
           <div>
