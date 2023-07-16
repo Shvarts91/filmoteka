@@ -1,14 +1,21 @@
 import { Films } from '../../components/Films/Films'
-import { HeaderHome } from '../../components/Header/HeaderHome'
-import { Paginator } from '../../components/Pagination/Pagination'
+import { HeaderHome } from './Components/Header/HeaderHome'
+import { Paginaton } from './Components/Pagination/Pagination'
+import { useEffect } from 'react'
+import { useDispatch } from 'react-redux'
+import { fetchMovies } from '../../api/api'
 
 function Home() {
+  const dispatch = useDispatch()
+  useEffect(() => {
+    dispatch(fetchMovies())
+  }, [])
   return (
-    <div>
+    <>
       <HeaderHome />
       <Films />
-      <Paginator />
-    </div>
+      <Paginaton />
+    </>
   )
 }
 

@@ -2,9 +2,10 @@
   padding: 50px;
   background: rgb(213, 163, 163);
   margin-bottom: 30px;
-  background: url('../../assets/bg-body.jpg') center / cover no-repeat;
+  background: url('../../../../assets/bg-body.jpg') center / cover no-repeat;
   background-size: 100%;
   color: #fff;
+  height: 150px;
 }
 
 .logo {
@@ -36,8 +37,5 @@
 }
 
 .buttonBlock {
-  display: flex;
-  justify-content: center;
-  gap: 30px;
-  margin: 60px 0 30px;
+  margin: 30px 0 30px;
 }

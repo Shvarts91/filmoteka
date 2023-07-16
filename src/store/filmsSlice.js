@@ -4,7 +4,8 @@ import {
   fetchGenres,
   fetchSearch,
   fetchFilmById,
-} from '../api/Api'
+  fetchFilmListById,
+} from '../api/api'
 
 const initialState = {
   error: null,
@@ -16,19 +17,23 @@ const initialState = {
   currentPage: 1,
   prodaction: '',
   searchQuery: '',
+  filterQuery: '',
   genres: {},
   currentFilm: {},
 }
 
 const {
   reducer: moviesSlice,
-  actions: { setSearchQuery },
+  actions: { setSearchQuery, setFilteredList },
 } = createSlice({
   name: 'movies',
   initialState,
   reducers: {
     setSearchQuery: (state, action) => {
       state.searchQuery = action.payload
+    },
+    setFilteredList: (state, action) => {
+      state.filterQuery = action.payload
     },
   },
   extraReducers: (builder) => {
@@ -90,20 +95,21 @@ const {
         state.loading = false
         state.error = action.error.message
       })
+
+      .addCase(fetchFilmListById.pending, (state) => {
+        state.loading = true
+        state.error = null
+        state.films = []
+      })
+      .addCase(fetchFilmListById.fulfilled, (state, action) => {
+        state.loading = false
+        state.films = action.payload
+      })
+      .addCase(fetchFilmListById.rejected, (state, action) => {
+        state.loading = false
+        state.error = action.error.message
+      })
   },
 })
 
-// const {
-//   reducer: searchSlice,
-//    actions: { setSearchQuery },
-// } = createSlice({
-//   name: 'search',
-//   initialState,
-//   reducers: {
-//     setSearchQuery: (state, action) => {
-//       return action.payload
-//     },
-//   },
-// })
-
-export { moviesSlice, setSearchQuery }
+export { moviesSlice, setSearchQuery, setFilteredList }

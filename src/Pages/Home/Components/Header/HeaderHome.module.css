@@ -1,0 +1,48 @@
+.header {
+  padding: 50px;
+  margin-bottom: 30px;
+  background: url('../../../../assets/bg-body.jpg') center / cover no-repeat;
+  background-size: 100%;
+  color: #fff;
+  height: 150px;
+}
+
+.logo {
+  font-weight: 700;
+  font-size: 30px;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
+    'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  text-decoration: none;
+  color: #2fd835;
+}
+
+.logo:hover {
+  text-decoration: underline;
+}
+
+.headerTop {
+  display: flex;
+  justify-content: space-around;
+}
+
+.linkHeader {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.linkHeader a {
+  color: #2fd835;
+}
+@media (max-width: 767.98px) {
+  .header {
+    padding: 40px 10px;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .logo {
+    font-size: 5vw;
+  }
+}

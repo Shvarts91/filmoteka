@@ -1,24 +1,23 @@
 import { NavLink } from 'react-router-dom'
-import style from './Header.module.css'
-import { CustomizedSwitches } from '../Switch/Switch'
 import Stack from '@mui/material/Stack'
-import { ButtonPageLibrary } from '../ButtonHeader/ButtonPageLibrary'
+import { Search } from '../Search/Search'
+import { CustomizedSwitches } from '../../../../components/Switch/Switch'
+import style from './HeaderHome.module.css'
 
-function HeaderLibrary() {
+function HeaderHome() {
   return (
     <div className={style.header}>
       <div className={style.headerBlock}>
         <div className={style.headerTop}>
-          <a href="/">FILMOTEKA</a>
+          <NavLink className={style.logo} to="/">
+            FILMOTEKA
+          </NavLink>
           <div className={style.linkHeader}>
             <NavLink to="/">Home</NavLink>
             <NavLink to="/library">My library</NavLink>
           </div>
         </div>
-        <div className={style.buttonBlock}>
-          <ButtonPageLibrary name="WATCHED" />
-          <ButtonPageLibrary name="QUEUE" />
-        </div>
+        <Search />
       </div>
       <Stack direction="row" spacing={1} alignItems="center">
         <CustomizedSwitches />
@@ -27,4 +26,4 @@ function HeaderLibrary() {
   )
 }
 
-export { HeaderLibrary }
+export { HeaderHome }

@@ -1,7 +1,21 @@
+.modalBlock {
+  display: flex;
+  padding: 40px;
+}
+
 .info {
   display: flex;
   gap: 15px;
+  align-items: center;
+  margin-bottom: 10px;
 }
+
+.image {
+  min-width: 340px;
+  width: 100%;
+  height: auto;
+}
+
 .infoValue {
   font-style: italic;
   font-weight: 600;
@@ -31,4 +45,65 @@
   max-height: 50px;
   width: 100%;
   height: 100%;
+}
+
+@media (max-width: 997.98px) {
+  .modalBlock {
+    padding: 30px;
+  }
+  .aboutDescription {
+    line-height: 1.3;
+    font-size: 16px;
+  }
+  .title {
+    font-size: 28px;
+    font-weight: 700;
+  }
+  .button {
+    padding: 5px;
+    font-size: 12px;
+  }
+}
+@media (max-width: 879.98px) {
+  .image {
+    min-width: 240px;
+    width: 100%;
+    height: auto;
+  }
+  .imageLogoBlock {
+    display: none;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .modalBlock {
+    padding: 20px;
+  }
+  .title {
+    font-size: 3vw;
+  }
+  .info {
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+  }
+  .infoValue {
+    font-size: 2vw;
+  }
+  .button {
+    padding: 0;
+  }
+}
+
+@media (max-width: 698.98px) {
+  .title {
+    font-size: 20px;
+    font-weight: 700;
+  }
+  .modalBlock {
+    display: block;
+  }
+  .infoValue {
+    font-size: 14px;
+  }
 }

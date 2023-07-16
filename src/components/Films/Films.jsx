@@ -1,11 +1,11 @@
 import { useDispatch, useSelector } from 'react-redux'
-import { useEffect, useState } from 'react'
-import { fetchFilmById, fetchGenres, fetchMovies } from '../../api/Api'
+import { useState } from 'react'
+import { fetchFilmById } from '../../api/api'
 import { Film } from '../Film/Film'
+import { FilmDetails } from '../FilmDetails/FilmDetails'
 import style from './Films.module.css'
-import { FilmModal } from '../FilmDetails/FilmDetails'
 
-function Films() {
+function Films({ onCloseFilmDetails }) {
   const dispatch = useDispatch()
   const { films, genres, currentFilm, error, searchQuery } = useSelector(
     ({ movies }) => movies
@@ -14,17 +14,13 @@ function Films() {
 
   const onCloseModal = () => {
     setIsOpenModal(false)
+    if (onCloseFilmDetails) onCloseFilmDetails()
   }
   const onClickCard = async (id) => {
     await dispatch(fetchFilmById(id))
     setIsOpenModal(true)
   }
 
-  useEffect(() => {
-    dispatch(fetchMovies())
-    dispatch(fetchGenres())
-  }, [])
-  console.log(error)
   return (
     <>
       <div className={style.filmsBody}>
@@ -46,7 +42,7 @@ function Films() {
         {error && <div className={style.error}>{error}</div>}
       </div>
       {currentFilm.id && (
-        <FilmModal
+        <FilmDetails
           currentFilm={currentFilm}
           open={isOpenModal}
           onClose={onCloseModal}
