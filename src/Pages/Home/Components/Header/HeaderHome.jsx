@@ -1,27 +1,21 @@
-import { NavLink } from 'react-router-dom'
-import Stack from '@mui/material/Stack'
 import { Search } from '../Search/Search'
-import { CustomizedSwitches } from '../../../../components/Switch/Switch'
 import style from './HeaderHome.module.css'
+import { HeaderLogo } from '../../../../components/Header/HeaderLogo'
+import { HeaderLink } from '../../../../components/Header/HeaderLink'
 
 function HeaderHome() {
   return (
     <div className={style.header}>
       <div className={style.headerBlock}>
         <div className={style.headerTop}>
-          <NavLink className={style.logo} to="/">
-            FILMOTEKA
-          </NavLink>
+          <HeaderLogo />
           <div className={style.linkHeader}>
-            <NavLink to="/">Home</NavLink>
-            <NavLink to="/library">My library</NavLink>
+            <HeaderLink linkName="Home" />
+            <HeaderLink linkName="My library" path="/library" />
           </div>
         </div>
         <Search />
       </div>
-      <Stack direction="row" spacing={1} alignItems="center">
-        <CustomizedSwitches />
-      </Stack>
     </div>
   )
 }

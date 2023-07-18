@@ -1,0 +1,18 @@
+.logo {
+  font-weight: 700;
+  font-size: 30px;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
+    'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  text-decoration: none;
+  color: #2fd835;
+}
+
+.logo:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 767.98px) {
+  .logo {
+    font-size: 20px;
+  }
+}

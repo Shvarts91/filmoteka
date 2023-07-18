@@ -44,7 +44,6 @@ export const FilmDetails = ({ open, onClose, currentFilm }) => {
           top: 4,
           color: '#000',
         }}
-        data-e2e="close-button"
       >
         <CloseIcon />
       </IconButton>
@@ -57,11 +56,7 @@ export const FilmDetails = ({ open, onClose, currentFilm }) => {
         />
 
         <div className={style.infoBlock}>
-          <DialogTitle
-            className={style.title}
-            fontWeight="700"
-            data-e2e="group-name"
-          >
+          <DialogTitle className={style.title} fontWeight="700">
             {title}
           </DialogTitle>
 

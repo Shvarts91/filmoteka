@@ -11,11 +11,8 @@ import { TypeList } from '../../../../constants'
 export function FiltrLibrary() {
   const [activeFilter, setActiveFilter] = useState(undefined)
   const dispatch = useDispatch()
-  const [listIdWatched, setListIdWatched] = useLocalStorage(
-    TypeList.WATCHED,
-    null
-  )
-  const [listIdQueue, setListIdQueue] = useLocalStorage(TypeList.QUEUE, null)
+  const [listIdWatched] = useLocalStorage(TypeList.WATCHED, null)
+  const [listIdQueue] = useLocalStorage(TypeList.QUEUE, null)
 
   const handleClick = (keyName) => {
     setActiveFilter(keyName)

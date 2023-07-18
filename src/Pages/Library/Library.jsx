@@ -9,16 +9,14 @@ import { TypeList } from '../../constants'
 function Library() {
   const { filterQuery } = useSelector(({ movies }) => movies)
 
-  const [listIdWatched, setListIdWatched] = useLocalStorage(
-    TypeList.WATCHED,
-    null
-  )
+  const [listIdWatched] = useLocalStorage(TypeList.WATCHED, null)
 
-  const [listIdQueue, setListIdQueue] = useLocalStorage(TypeList.QUEUE, null)
+  const [listIdQueue] = useLocalStorage(TypeList.QUEUE, null)
 
   const updateFilmsFromStorage = () => {
-    const dataResult = []
+    if (!listIdWatched && !listIdQueue) return
 
+    const dataResult = []
     if (!filterQuery) dataResult.push(...listIdWatched.concat(listIdQueue))
 
     if (filterQuery === TypeList.WATCHED) dataResult.push(...listIdWatched)

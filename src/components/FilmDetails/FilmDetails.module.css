@@ -79,9 +79,7 @@
   .modalBlock {
     padding: 20px;
   }
-  .title {
-    font-size: 3vw;
-  }
+
   .info {
     display: flex;
     flex-direction: row;

@@ -7,19 +7,6 @@
   height: 150px;
 }
 
-.logo {
-  font-weight: 700;
-  font-size: 30px;
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
-    'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-  text-decoration: none;
-  color: #2fd835;
-}
-
-.logo:hover {
-  text-decoration: underline;
-}
-
 .headerTop {
   display: flex;
   justify-content: space-around;
@@ -35,14 +22,9 @@
 .linkHeader a {
   color: #2fd835;
 }
-@media (max-width: 767.98px) {
-  .header {
-    padding: 40px 10px;
-  }
-}
 
 @media (max-width: 767.98px) {
-  .logo {
-    font-size: 5vw;
+  .header {
+    padding: 40px 10px 0px;
   }
 }
