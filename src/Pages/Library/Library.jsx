@@ -4,28 +4,26 @@ import { useEffect } from 'react'
 import { useLocalStorage } from '@uidotdev/usehooks'
 import { Films } from '../../components/Films/Films'
 import { HeaderLibrary } from './Components/Header/HeaderLibrary'
+import { TypeList } from '../../constants'
 
 function Library() {
-  const keyStorageWatched = 'watched'
-  const keyStorageQueue = 'queue'
-
   const { filterQuery } = useSelector(({ movies }) => movies)
 
   const [listIdWatched, setListIdWatched] = useLocalStorage(
-    keyStorageWatched,
+    TypeList.WATCHED,
     null
   )
-  console.log(filterQuery)
-  const [listIdQueue, setListIdQueue] = useLocalStorage(keyStorageQueue, null)
+
+  const [listIdQueue, setListIdQueue] = useLocalStorage(TypeList.QUEUE, null)
 
   const updateFilmsFromStorage = () => {
     const dataResult = []
 
     if (!filterQuery) dataResult.push(...listIdWatched.concat(listIdQueue))
 
-    if (filterQuery === keyStorageWatched) dataResult.push(...listIdWatched)
+    if (filterQuery === TypeList.WATCHED) dataResult.push(...listIdWatched)
 
-    if (filterQuery === keyStorageQueue) dataResult.push(...listIdQueue)
+    if (filterQuery === TypeList.QUEUE) dataResult.push(...listIdQueue)
 
     dispatch(fetchFilmListById([...new Set(dataResult)]))
   }

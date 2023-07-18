@@ -49,7 +49,7 @@ export const fetchFilmById = createAsyncThunk(
     const response = await fetch(`${API}/3/movie/${id}?api_key=${API_KEY}`)
 
     const result = await response.json()
-    console.log(result)
+
     return {
       ...result,
       production_companies: result.production_companies.filter(

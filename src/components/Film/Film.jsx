@@ -5,9 +5,9 @@ import Typography from '@mui/material/Typography'
 import { CardActionArea } from '@mui/material'
 import style from './Film.module.css'
 
-function Film({ title, poster_path, prodaction, genres, id, onCardOpen }) {
+function Film({ title, poster_path, production, genres, id, onCardOpen }) {
   const pathImage = 'https://image.tmdb.org/t/p/w500'
-  const getYear = () => new Date(prodaction).getFullYear()
+  const getYear = () => new Date(production).getFullYear()
 
   const handleClick = () => {
     onCardOpen(id)

@@ -12,7 +12,7 @@ function Paginaton() {
   )
 
   const [pageNumber, setPageNumber] = useState(currentPage)
-  let pagesCount = Math.ceil(totalResults / pageSize)
+  const pagesCount = Math.ceil(totalResults / pageSize)
   const handleChange = (event, value) => {
     setPageNumber(value)
     if (searchQuery) {

@@ -15,7 +15,7 @@ const initialState = {
   totalPages: 0,
   totalResults: 0,
   currentPage: 1,
-  prodaction: '',
+  production: '',
   searchQuery: '',
   filterQuery: '',
   genres: {},

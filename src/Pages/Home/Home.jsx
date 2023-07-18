@@ -10,6 +10,7 @@ function Home() {
   useEffect(() => {
     dispatch(fetchMovies())
   }, [])
+
   return (
     <>
       <HeaderHome />

@@ -30,7 +30,7 @@ function MovieListManagerButton({ name, id, keyStorage }) {
       variant={hasId ? 'contained' : 'outlined'}
       className={style.button}
     >
-      {!hasId ? `ADD TO ${name}` : `REMOVE FROM ${name}`}
+      {!hasId ? `add to ${name}` : `remove from ${name}`}
     </Button>
   )
 }
