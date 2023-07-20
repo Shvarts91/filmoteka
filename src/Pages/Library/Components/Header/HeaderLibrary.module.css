@@ -1,0 +1,41 @@
+.header {
+  padding: 50px;
+  margin-bottom: 30px;
+  background: url('../../../../assets/bg-body.jpg') center / cover no-repeat;
+  background-size: 100%;
+  color: #fff;
+  height: 150px;
+}
+
+.headerTop {
+  display: flex;
+  justify-content: space-around;
+}
+
+.buttonBlock {
+  margin: 25px 0 25px;
+}
+
+.logo {
+  font-weight: 700;
+  font-size: 30px;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
+    'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  text-decoration: none;
+  color: #2fd835;
+}
+
+.logo:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 767.98px) {
+  .logo {
+    font-size: 20px;
+  }
+}
+@media (max-width: 767.98px) {
+  .header {
+    padding: 40px 10px 0px;
+  }
+}

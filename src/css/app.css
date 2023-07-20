@@ -1,0 +1,9 @@
+.App {
+  text-align: center;
+  background-color: rgb(235, 252, 204);
+}
+
+.active {
+  text-decoration: none;
+  font-weight: 700;
+}
