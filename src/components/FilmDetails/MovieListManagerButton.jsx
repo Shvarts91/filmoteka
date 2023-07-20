@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import Button from '@mui/material/Button'
-import { useLocalStorage } from '@uidotdev/usehooks'
+import { useLocalStorage } from '../../hooks/useLocalStorage'
 import style from './FilmDetails.module.css'
 
 function MovieListManagerButton({ name, id, keyStorage }) {
@@ -19,7 +19,7 @@ function MovieListManagerButton({ name, id, keyStorage }) {
   }
 
   useEffect(() => {
-    if (listId.includes(id)) {
+    if (listId?.includes(id)) {
       setHasId(true)
     }
   }, [])

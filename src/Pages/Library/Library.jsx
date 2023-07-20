@@ -1,7 +1,7 @@
 import { fetchFilmListById } from '../../api/api'
 import { useDispatch, useSelector } from 'react-redux'
 import { useEffect } from 'react'
-import { useLocalStorage } from '@uidotdev/usehooks'
+import { useLocalStorage } from '../../hooks/useLocalStorage'
 import { Films } from '../../components/Films/Films'
 import { HeaderLibrary } from './Components/Header/HeaderLibrary'
 import { TypeList } from '../../constants'
