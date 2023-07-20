@@ -12,10 +12,6 @@ function HeaderHome() {
             FILMOTEKA
           </NavLink>
           <NavigationLinks />
-          {/* <div className={style.linkHeader}>
-            <HeaderLink linkName="Home" />
-            <HeaderLink linkName="My library" path="/library" />
-          </div> */}
         </div>
         <Search />
       </div>
