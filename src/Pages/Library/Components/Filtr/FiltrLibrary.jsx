@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { useDispatch } from 'react-redux'
 import { useState } from 'react'
-import { useLocalStorage } from '@uidotdev/usehooks'
+import { useLocalStorage } from '../../../../hooks/useLocalStorage'
 import Stack from '@mui/material/Stack'
 import { fetchFilmListById } from '../../../../api/api'
 import { FiltrButton } from './FiltrButton'

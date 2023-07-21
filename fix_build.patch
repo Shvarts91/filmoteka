@@ -1,0 +1,521 @@
+Subject: [PATCH] fix build
+---
+Index: src/Pages/Library/Library.jsx
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/Pages/Library/Library.jsx b/src/Pages/Library/Library.jsx
+--- a/src/Pages/Library/Library.jsx	(revision 6a8309b4dd76e6f8b54785071f82b15a029aebf2)
++++ b/src/Pages/Library/Library.jsx	(date 1689879922578)
+@@ -1,7 +1,7 @@
+ import { fetchFilmListById } from '../../api/api'
+ import { useDispatch, useSelector } from 'react-redux'
+ import { useEffect } from 'react'
+-import { useLocalStorage } from '@uidotdev/usehooks'
++import { useLocalStorage } from '../../hooks/useLocalStorage'
+ import { Films } from '../../components/Films/Films'
+ import { HeaderLibrary } from './Components/Header/HeaderLibrary'
+ import { TypeList } from '../../constants'
+Index: package-lock.json
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/package-lock.json b/package-lock.json
+--- a/package-lock.json	(revision 6a8309b4dd76e6f8b54785071f82b15a029aebf2)
++++ b/package-lock.json	(date 1689880287750)
+@@ -17,9 +17,7 @@
+         "@testing-library/jest-dom": "^5.16.5",
+         "@testing-library/react": "^13.4.0",
+         "@testing-library/user-event": "^13.5.0",
+-        "@uidotdev/usehooks": "^2.0.1-experimental.1",
+-        "react": "^0.0.0-experimental-546fe4681-20230713",
+-        "react-dom": "^0.0.0-experimental-546fe4681-20230713",
++        "react": "^18.2.0",
+         "react-redux": "^8.0.7",
+         "react-router-dom": "^6.12.1",
+         "react-scripts": "5.0.1",
+@@ -4088,6 +4086,95 @@
+         "url": "https://github.com/sponsors/gregberge"
+       }
+     },
++    "node_modules/@testing-library/dom": {
++      "version": "9.3.1",
++      "resolved": "https://registry.npmjs.org/@testing-library/dom/-/dom-9.3.1.tgz",
++      "integrity": "sha512-0DGPd9AR3+iDTjGoMpxIkAsUihHZ3Ai6CneU6bRRrffXMgzCdlNk43jTrD2/5LT6CBb3MWTP8v510JzYtahD2w==",
++      "peer": true,
++      "dependencies": {
++        "@babel/code-frame": "^7.10.4",
++        "@babel/runtime": "^7.12.5",
++        "@types/aria-query": "^5.0.1",
++        "aria-query": "5.1.3",
++        "chalk": "^4.1.0",
++        "dom-accessibility-api": "^0.5.9",
++        "lz-string": "^1.5.0",
++        "pretty-format": "^27.0.2"
++      },
++      "engines": {
++        "node": ">=14"
++      }
++    },
++    "node_modules/@testing-library/dom/node_modules/ansi-styles": {
++      "version": "4.3.0",
++      "resolved": "https://registry.npmjs.org/ansi-styles/-/ansi-styles-4.3.0.tgz",
++      "integrity": "sha512-zbB9rCJAT1rbjiVDb2hqKFHNYLxgtk8NURxZ3IZwD3F6NtxbXZQCnnSi1Lkx+IDohdPlFp222wVALIheZJQSEg==",
++      "peer": true,
++      "dependencies": {
++        "color-convert": "^2.0.1"
++      },
++      "engines": {
++        "node": ">=8"
++      },
++      "funding": {
++        "url": "https://github.com/chalk/ansi-styles?sponsor=1"
++      }
++    },
++    "node_modules/@testing-library/dom/node_modules/chalk": {
++      "version": "4.1.2",
++      "resolved": "https://registry.npmjs.org/chalk/-/chalk-4.1.2.tgz",
++      "integrity": "sha512-oKnbhFyRIXpUuez8iBMmyEa4nbj4IOQyuhc/wy9kY7/WVPcwIO9VA668Pu8RkO7+0G76SLROeyw9CpQ061i4mA==",
++      "peer": true,
++      "dependencies": {
++        "ansi-styles": "^4.1.0",
++        "supports-color": "^7.1.0"
++      },
++      "engines": {
++        "node": ">=10"
++      },
++      "funding": {
++        "url": "https://github.com/chalk/chalk?sponsor=1"
++      }
++    },
++    "node_modules/@testing-library/dom/node_modules/color-convert": {
++      "version": "2.0.1",
++      "resolved": "https://registry.npmjs.org/color-convert/-/color-convert-2.0.1.tgz",
++      "integrity": "sha512-RRECPsj7iu/xb5oKYcsFHSppFNnsj/52OVTRKb4zP5onXwVF3zVmmToNcOfGC+CRDpfK/U584fMg38ZHCaElKQ==",
++      "peer": true,
++      "dependencies": {
++        "color-name": "~1.1.4"
++      },
++      "engines": {
++        "node": ">=7.0.0"
++      }
++    },
++    "node_modules/@testing-library/dom/node_modules/color-name": {
++      "version": "1.1.4",
++      "resolved": "https://registry.npmjs.org/color-name/-/color-name-1.1.4.tgz",
++      "integrity": "sha512-dOy+3AuW3a2wNbZHIuMZpTcgjGuLU/uBL/ubcZF9OXbDo8ff4O8yVp5Bf0efS8uEoYo5q4Fx7dY9OgQGXgAsQA==",
++      "peer": true
++    },
++    "node_modules/@testing-library/dom/node_modules/has-flag": {
++      "version": "4.0.0",
++      "resolved": "https://registry.npmjs.org/has-flag/-/has-flag-4.0.0.tgz",
++      "integrity": "sha512-EykJT/Q1KjTWctppgIAgfSO0tKVuZUjhgMr17kqTumMl6Afv3EISleU7qZUzoXDFTAHTDC4NOoG/ZxU3EvlMPQ==",
++      "peer": true,
++      "engines": {
++        "node": ">=8"
++      }
++    },
++    "node_modules/@testing-library/dom/node_modules/supports-color": {
++      "version": "7.2.0",
++      "resolved": "https://registry.npmjs.org/supports-color/-/supports-color-7.2.0.tgz",
++      "integrity": "sha512-qpCAvRl9stuOHveKsn7HncJRvv501qIacKzQlO/+Lwxc9+0q2wLyv4Dfvt80/DPn2pqOBsJdDiogXGR9+OvwRw==",
++      "peer": true,
++      "dependencies": {
++        "has-flag": "^4.0.0"
++      },
++      "engines": {
++        "node": ">=8"
++      }
++    },
+     "node_modules/@testing-library/jest-dom": {
+       "version": "5.16.5",
+       "resolved": "https://registry.npmjs.org/@testing-library/jest-dom/-/jest-dom-5.16.5.tgz",
+@@ -5111,18 +5198,6 @@
+         "url": "https://opencollective.com/typescript-eslint"
+       }
+     },
+-    "node_modules/@uidotdev/usehooks": {
+-      "version": "2.0.1-experimental.1",
+-      "resolved": "https://registry.npmjs.org/@uidotdev/usehooks/-/usehooks-2.0.1-experimental.1.tgz",
+-      "integrity": "sha512-JnmDeiwbidYoP4aRZIEQ0BIi4IQs/a4MLd1xy1cbbtEAuqoHii7cC+Zimi8tYGE925sKeRJHUM+hBxFnCa9AHA==",
+-      "engines": {
+-        "node": ">=16"
+-      },
+-      "peerDependencies": {
+-        "react": "0.0.0-experimental-bfb9cbd8c-20230223",
+-        "react-dom": "0.0.0-experimental-bfb9cbd8c-20230223"
+-      }
+-    },
+     "node_modules/@webassemblyjs/ast": {
+       "version": "1.11.6",
+       "resolved": "https://registry.npmjs.org/@webassemblyjs/ast/-/ast-1.11.6.tgz",
+@@ -8982,6 +9057,19 @@
+       "resolved": "https://registry.npmjs.org/fs.realpath/-/fs.realpath-1.0.0.tgz",
+       "integrity": "sha512-OO0pH2lK6a0hZnAdau5ItzHPI6pUlvI7jMVnxUQRtw4owF2wk8lOSabtGDCTP4Ggrg2MbGnWO9X8K1t4+fGMDw=="
+     },
++    "node_modules/fsevents": {
++      "version": "2.3.2",
++      "resolved": "https://registry.npmjs.org/fsevents/-/fsevents-2.3.2.tgz",
++      "integrity": "sha512-xiqMQR4xAeHTuB9uWm+fFRcIOgKBMiOBP+eXiyT7jsgVCq1bkVygt00oASowB7EdtpOHaaPgKt812P9ab+DDKA==",
++      "hasInstallScript": true,
++      "optional": true,
++      "os": [
++        "darwin"
++      ],
++      "engines": {
++        "node": "^8.16.0 || ^10.6.0 || >=11.0.0"
++      }
++    },
+     "node_modules/function-bind": {
+       "version": "1.1.1",
+       "resolved": "https://registry.npmjs.org/function-bind/-/function-bind-1.1.1.tgz",
+@@ -14827,9 +14915,9 @@
+       }
+     },
+     "node_modules/react": {
+-      "version": "0.0.0-experimental-546fe4681-20230713",
+-      "resolved": "https://registry.npmjs.org/react/-/react-0.0.0-experimental-546fe4681-20230713.tgz",
+-      "integrity": "sha512-vZkeBQKoS10F5wSB0N2/rJYYTCJXMHNx+guIK4kYt6tTa5EPL5+GSlysjkrlULNrqHKxgem+JV79A7wnt1fVEg==",
++      "version": "18.2.0",
++      "resolved": "https://registry.npmjs.org/react/-/react-18.2.0.tgz",
++      "integrity": "sha512-/3IjMdb2L9QbBdWiW5e3P2/npwMBaU9mHCSCUzNln0ZCYbcfTsGbTJrU/kGemdH2IWmB2ioZ+zkxtmq6g09fGQ==",
+       "dependencies": {
+         "loose-envify": "^1.1.0"
+       },
+@@ -14971,15 +15059,16 @@
+       }
+     },
+     "node_modules/react-dom": {
+-      "version": "0.0.0-experimental-546fe4681-20230713",
+-      "resolved": "https://registry.npmjs.org/react-dom/-/react-dom-0.0.0-experimental-546fe4681-20230713.tgz",
+-      "integrity": "sha512-/gw7HwNhWEV41e2mQLmZx/+a1qomAdqwODv6t1ECMKkSk3hk8Y22dHuMy+lpv4UqoIRDnslde1jvHWnNxTbUVg==",
++      "version": "18.2.0",
++      "resolved": "https://registry.npmjs.org/react-dom/-/react-dom-18.2.0.tgz",
++      "integrity": "sha512-6IMTriUmvsjHUjNtEDudZfuDQUoWXVxKHhlEGSk81n4YFS+r/Kl99wXiwlVXtPBtJenozv2P+hxDsw9eA7Xo6g==",
++      "peer": true,
+       "dependencies": {
+         "loose-envify": "^1.1.0",
+-        "scheduler": "0.0.0-experimental-546fe4681-20230713"
++        "scheduler": "^0.23.0"
+       },
+       "peerDependencies": {
+-        "react": "0.0.0-experimental-546fe4681-20230713"
++        "react": "^18.2.0"
+       }
+     },
+     "node_modules/react-error-overlay": {
+@@ -15700,9 +15789,10 @@
+       }
+     },
+     "node_modules/scheduler": {
+-      "version": "0.0.0-experimental-546fe4681-20230713",
+-      "resolved": "https://registry.npmjs.org/scheduler/-/scheduler-0.0.0-experimental-546fe4681-20230713.tgz",
+-      "integrity": "sha512-erBGUg1HGmkjFMXB13bTmWeziYzqjTJNBDKBZhHixAXAs8PJu72/y+Nfj0rgrHgIYuF3SQG4cRpaJj7SOXBd/w==",
++      "version": "0.23.0",
++      "resolved": "https://registry.npmjs.org/scheduler/-/scheduler-0.23.0.tgz",
++      "integrity": "sha512-CtuThmgHNg7zIZWAXi3AsyIzA3n4xx7aNyjwC2VJldO2LMVDhFK+63xGqq6CsJH4rTAt6/M+N4GhZiDYPx9eUw==",
++      "peer": true,
+       "dependencies": {
+         "loose-envify": "^1.1.0"
+       }
+@@ -16921,6 +17011,19 @@
+         "is-typedarray": "^1.0.0"
+       }
+     },
++    "node_modules/typescript": {
++      "version": "4.9.5",
++      "resolved": "https://registry.npmjs.org/typescript/-/typescript-4.9.5.tgz",
++      "integrity": "sha512-1FXk9E2Hm+QzZQ7z+McJiHL4NW1F2EzMu9Nq9i3zAaGqibafqYwCVU6WyWAuyQRRzOlxou8xZSyXLEN8oKj24g==",
++      "peer": true,
++      "bin": {
++        "tsc": "bin/tsc",
++        "tsserver": "bin/tsserver"
++      },
++      "engines": {
++        "node": ">=4.2.0"
++      }
++    },
+     "node_modules/unbox-primitive": {
+       "version": "1.0.2",
+       "resolved": "https://registry.npmjs.org/unbox-primitive/-/unbox-primitive-1.0.2.tgz",
+@@ -20746,6 +20849,73 @@
+         "loader-utils": "^2.0.0"
+       }
+     },
++    "@testing-library/dom": {
++      "version": "9.3.1",
++      "resolved": "https://registry.npmjs.org/@testing-library/dom/-/dom-9.3.1.tgz",
++      "integrity": "sha512-0DGPd9AR3+iDTjGoMpxIkAsUihHZ3Ai6CneU6bRRrffXMgzCdlNk43jTrD2/5LT6CBb3MWTP8v510JzYtahD2w==",
++      "peer": true,
++      "requires": {
++        "@babel/code-frame": "^7.10.4",
++        "@babel/runtime": "^7.12.5",
++        "@types/aria-query": "^5.0.1",
++        "aria-query": "5.1.3",
++        "chalk": "^4.1.0",
++        "dom-accessibility-api": "^0.5.9",
++        "lz-string": "^1.5.0",
++        "pretty-format": "^27.0.2"
++      },
++      "dependencies": {
++        "ansi-styles": {
++          "version": "4.3.0",
++          "resolved": "https://registry.npmjs.org/ansi-styles/-/ansi-styles-4.3.0.tgz",
++          "integrity": "sha512-zbB9rCJAT1rbjiVDb2hqKFHNYLxgtk8NURxZ3IZwD3F6NtxbXZQCnnSi1Lkx+IDohdPlFp222wVALIheZJQSEg==",
++          "peer": true,
++          "requires": {
++            "color-convert": "^2.0.1"
++          }
++        },
++        "chalk": {
++          "version": "4.1.2",
++          "resolved": "https://registry.npmjs.org/chalk/-/chalk-4.1.2.tgz",
++          "integrity": "sha512-oKnbhFyRIXpUuez8iBMmyEa4nbj4IOQyuhc/wy9kY7/WVPcwIO9VA668Pu8RkO7+0G76SLROeyw9CpQ061i4mA==",
++          "peer": true,
++          "requires": {
++            "ansi-styles": "^4.1.0",
++            "supports-color": "^7.1.0"
++          }
++        },
++        "color-convert": {
++          "version": "2.0.1",
++          "resolved": "https://registry.npmjs.org/color-convert/-/color-convert-2.0.1.tgz",
++          "integrity": "sha512-RRECPsj7iu/xb5oKYcsFHSppFNnsj/52OVTRKb4zP5onXwVF3zVmmToNcOfGC+CRDpfK/U584fMg38ZHCaElKQ==",
++          "peer": true,
++          "requires": {
++            "color-name": "~1.1.4"
++          }
++        },
++        "color-name": {
++          "version": "1.1.4",
++          "resolved": "https://registry.npmjs.org/color-name/-/color-name-1.1.4.tgz",
++          "integrity": "sha512-dOy+3AuW3a2wNbZHIuMZpTcgjGuLU/uBL/ubcZF9OXbDo8ff4O8yVp5Bf0efS8uEoYo5q4Fx7dY9OgQGXgAsQA==",
++          "peer": true
++        },
++        "has-flag": {
++          "version": "4.0.0",
++          "resolved": "https://registry.npmjs.org/has-flag/-/has-flag-4.0.0.tgz",
++          "integrity": "sha512-EykJT/Q1KjTWctppgIAgfSO0tKVuZUjhgMr17kqTumMl6Afv3EISleU7qZUzoXDFTAHTDC4NOoG/ZxU3EvlMPQ==",
++          "peer": true
++        },
++        "supports-color": {
++          "version": "7.2.0",
++          "resolved": "https://registry.npmjs.org/supports-color/-/supports-color-7.2.0.tgz",
++          "integrity": "sha512-qpCAvRl9stuOHveKsn7HncJRvv501qIacKzQlO/+Lwxc9+0q2wLyv4Dfvt80/DPn2pqOBsJdDiogXGR9+OvwRw==",
++          "peer": true,
++          "requires": {
++            "has-flag": "^4.0.0"
++          }
++        }
++      }
++    },
+     "@testing-library/jest-dom": {
+       "version": "5.16.5",
+       "resolved": "https://registry.npmjs.org/@testing-library/jest-dom/-/jest-dom-5.16.5.tgz",
+@@ -21550,12 +21720,6 @@
+         "eslint-visitor-keys": "^3.3.0"
+       }
+     },
+-    "@uidotdev/usehooks": {
+-      "version": "2.0.1-experimental.1",
+-      "resolved": "https://registry.npmjs.org/@uidotdev/usehooks/-/usehooks-2.0.1-experimental.1.tgz",
+-      "integrity": "sha512-JnmDeiwbidYoP4aRZIEQ0BIi4IQs/a4MLd1xy1cbbtEAuqoHii7cC+Zimi8tYGE925sKeRJHUM+hBxFnCa9AHA==",
+-      "requires": {}
+-    },
+     "@webassemblyjs/ast": {
+       "version": "1.11.6",
+       "resolved": "https://registry.npmjs.org/@webassemblyjs/ast/-/ast-1.11.6.tgz",
+@@ -24408,6 +24572,12 @@
+       "resolved": "https://registry.npmjs.org/fs.realpath/-/fs.realpath-1.0.0.tgz",
+       "integrity": "sha512-OO0pH2lK6a0hZnAdau5ItzHPI6pUlvI7jMVnxUQRtw4owF2wk8lOSabtGDCTP4Ggrg2MbGnWO9X8K1t4+fGMDw=="
+     },
++    "fsevents": {
++      "version": "2.3.2",
++      "resolved": "https://registry.npmjs.org/fsevents/-/fsevents-2.3.2.tgz",
++      "integrity": "sha512-xiqMQR4xAeHTuB9uWm+fFRcIOgKBMiOBP+eXiyT7jsgVCq1bkVygt00oASowB7EdtpOHaaPgKt812P9ab+DDKA==",
++      "optional": true
++    },
+     "function-bind": {
+       "version": "1.1.1",
+       "resolved": "https://registry.npmjs.org/function-bind/-/function-bind-1.1.1.tgz",
+@@ -28440,9 +28610,9 @@
+       }
+     },
+     "react": {
+-      "version": "0.0.0-experimental-546fe4681-20230713",
+-      "resolved": "https://registry.npmjs.org/react/-/react-0.0.0-experimental-546fe4681-20230713.tgz",
+-      "integrity": "sha512-vZkeBQKoS10F5wSB0N2/rJYYTCJXMHNx+guIK4kYt6tTa5EPL5+GSlysjkrlULNrqHKxgem+JV79A7wnt1fVEg==",
++      "version": "18.2.0",
++      "resolved": "https://registry.npmjs.org/react/-/react-18.2.0.tgz",
++      "integrity": "sha512-/3IjMdb2L9QbBdWiW5e3P2/npwMBaU9mHCSCUzNln0ZCYbcfTsGbTJrU/kGemdH2IWmB2ioZ+zkxtmq6g09fGQ==",
+       "requires": {
+         "loose-envify": "^1.1.0"
+       }
+@@ -28547,12 +28717,13 @@
+       }
+     },
+     "react-dom": {
+-      "version": "0.0.0-experimental-546fe4681-20230713",
+-      "resolved": "https://registry.npmjs.org/react-dom/-/react-dom-0.0.0-experimental-546fe4681-20230713.tgz",
+-      "integrity": "sha512-/gw7HwNhWEV41e2mQLmZx/+a1qomAdqwODv6t1ECMKkSk3hk8Y22dHuMy+lpv4UqoIRDnslde1jvHWnNxTbUVg==",
++      "version": "18.2.0",
++      "resolved": "https://registry.npmjs.org/react-dom/-/react-dom-18.2.0.tgz",
++      "integrity": "sha512-6IMTriUmvsjHUjNtEDudZfuDQUoWXVxKHhlEGSk81n4YFS+r/Kl99wXiwlVXtPBtJenozv2P+hxDsw9eA7Xo6g==",
++      "peer": true,
+       "requires": {
+         "loose-envify": "^1.1.0",
+-        "scheduler": "0.0.0-experimental-546fe4681-20230713"
++        "scheduler": "^0.23.0"
+       }
+     },
+     "react-error-overlay": {
+@@ -29034,9 +29205,10 @@
+       }
+     },
+     "scheduler": {
+-      "version": "0.0.0-experimental-546fe4681-20230713",
+-      "resolved": "https://registry.npmjs.org/scheduler/-/scheduler-0.0.0-experimental-546fe4681-20230713.tgz",
+-      "integrity": "sha512-erBGUg1HGmkjFMXB13bTmWeziYzqjTJNBDKBZhHixAXAs8PJu72/y+Nfj0rgrHgIYuF3SQG4cRpaJj7SOXBd/w==",
++      "version": "0.23.0",
++      "resolved": "https://registry.npmjs.org/scheduler/-/scheduler-0.23.0.tgz",
++      "integrity": "sha512-CtuThmgHNg7zIZWAXi3AsyIzA3n4xx7aNyjwC2VJldO2LMVDhFK+63xGqq6CsJH4rTAt6/M+N4GhZiDYPx9eUw==",
++      "peer": true,
+       "requires": {
+         "loose-envify": "^1.1.0"
+       }
+@@ -29980,6 +30152,12 @@
+         "is-typedarray": "^1.0.0"
+       }
+     },
++    "typescript": {
++      "version": "4.9.5",
++      "resolved": "https://registry.npmjs.org/typescript/-/typescript-4.9.5.tgz",
++      "integrity": "sha512-1FXk9E2Hm+QzZQ7z+McJiHL4NW1F2EzMu9Nq9i3zAaGqibafqYwCVU6WyWAuyQRRzOlxou8xZSyXLEN8oKj24g==",
++      "peer": true
++    },
+     "unbox-primitive": {
+       "version": "1.0.2",
+       "resolved": "https://registry.npmjs.org/unbox-primitive/-/unbox-primitive-1.0.2.tgz",
+Index: package.json
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/package.json b/package.json
+--- a/package.json	(revision 6a8309b4dd76e6f8b54785071f82b15a029aebf2)
++++ b/package.json	(date 1689877718424)
+@@ -12,9 +12,7 @@
+     "@testing-library/jest-dom": "^5.16.5",
+     "@testing-library/react": "^13.4.0",
+     "@testing-library/user-event": "^13.5.0",
+-    "@uidotdev/usehooks": "^2.0.1-experimental.1",
+-    "react": "^0.0.0-experimental-546fe4681-20230713",
+-    "react-dom": "^0.0.0-experimental-546fe4681-20230713",
++    "react": "^18.2.0",
+     "react-redux": "^8.0.7",
+     "react-router-dom": "^6.12.1",
+     "react-scripts": "5.0.1",
+Index: src/components/FilmDetails/MovieListManagerButton.jsx
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/components/FilmDetails/MovieListManagerButton.jsx b/src/components/FilmDetails/MovieListManagerButton.jsx
+--- a/src/components/FilmDetails/MovieListManagerButton.jsx	(revision 6a8309b4dd76e6f8b54785071f82b15a029aebf2)
++++ b/src/components/FilmDetails/MovieListManagerButton.jsx	(date 1689879922576)
+@@ -1,6 +1,6 @@
+ import { useEffect, useState } from 'react'
+ import Button from '@mui/material/Button'
+-import { useLocalStorage } from '@uidotdev/usehooks'
++import { useLocalStorage } from '../../hooks/useLocalStorage'
+ import style from './FilmDetails.module.css'
+ 
+ function MovieListManagerButton({ name, id, keyStorage }) {
+@@ -19,7 +19,7 @@
+   }
+ 
+   useEffect(() => {
+-    if (listId.includes(id)) {
++    if (listId?.includes(id)) {
+       setHasId(true)
+     }
+   }, [])
+Index: src/hooks/useLocalStorage.js
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/hooks/useLocalStorage.js b/src/hooks/useLocalStorage.js
+new file mode 100644
+--- /dev/null	(date 1689879173885)
++++ b/src/hooks/useLocalStorage.js	(date 1689879173885)
+@@ -0,0 +1,50 @@
++import { useState, useEffect } from "react";
++
++export const useLocalStorage = (key, defaultValue) => {
++    const [value, setValue] = useState(() => {
++        let currentValue;
++
++        try {
++            currentValue = JSON.parse(localStorage.getItem(key) || String(defaultValue));
++        } catch (error) {
++            currentValue = defaultValue;
++        }
++
++        return currentValue;
++    });
++
++    useEffect(() => {
++        const handleStorageChange = (event) => {
++            if (event.key === key) {
++                setValue(JSON.parse(event.newValue));
++            }
++        };
++
++        // Listen for the custom "syncLocalStorage" event
++        const handleCustomEvent = (event) => {
++            if (event.detail.key === key) {
++                setValue(event.detail.value);
++            }
++        };
++
++        window.addEventListener("storage", handleStorageChange);
++        window.addEventListener("syncLocalStorage", handleCustomEvent);
++
++        return () => {
++            window.removeEventListener("storage", handleStorageChange);
++            window.removeEventListener("syncLocalStorage", handleCustomEvent);
++        };
++    }, [key]);
++
++    useEffect(() => {
++        localStorage.setItem(key, JSON.stringify(value));
++
++        // Dispatch the custom "syncLocalStorage" event to notify other components
++        const event = new CustomEvent("syncLocalStorage", {
++            detail: { key, value },
++        });
++        window.dispatchEvent(event);
++    }, [value, key]);
++
++    return [value, setValue];
++};
+Index: src/Pages/Library/Components/Filtr/FiltrLibrary.jsx
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/Pages/Library/Components/Filtr/FiltrLibrary.jsx b/src/Pages/Library/Components/Filtr/FiltrLibrary.jsx
+--- a/src/Pages/Library/Components/Filtr/FiltrLibrary.jsx	(revision 6a8309b4dd76e6f8b54785071f82b15a029aebf2)
++++ b/src/Pages/Library/Components/Filtr/FiltrLibrary.jsx	(date 1689879922572)
+@@ -1,7 +1,7 @@
+ import * as React from 'react'
+ import { useDispatch } from 'react-redux'
+ import { useState } from 'react'
+-import { useLocalStorage } from '@uidotdev/usehooks'
++import { useLocalStorage } from '../../../../hooks/useLocalStorage'
+ import Stack from '@mui/material/Stack'
+ import { fetchFilmListById } from '../../../../api/api'
+ import { FiltrButton } from './FiltrButton'
