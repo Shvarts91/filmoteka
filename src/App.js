@@ -12,7 +12,7 @@ function App() {
   const dispatch = useDispatch()
   useEffect(() => {
     dispatch(fetchGenres())
-  }, [])
+  }, [dispatch])
   return (
     <ThemeProvider theme={theme}>
       <div className="App">

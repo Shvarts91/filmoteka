@@ -22,7 +22,7 @@ function MovieListManagerButton({ name, id, keyStorage }) {
     if (listId?.includes(id)) {
       setHasId(true)
     }
-  }, [])
+  }, [id, listId])
 
   return (
     <Button

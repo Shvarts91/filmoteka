@@ -1,6 +1,6 @@
 import { fetchFilmListById } from '../../api/api'
 import { useDispatch, useSelector } from 'react-redux'
-import { useEffect } from 'react'
+import { useCallback, useEffect } from 'react'
 import { useLocalStorage } from '../../hooks/useLocalStorage'
 import { Films } from '../../components/Films/Films'
 import { HeaderLibrary } from './Components/Header/HeaderLibrary'
@@ -13,7 +13,9 @@ function Library() {
 
   const [listIdQueue] = useLocalStorage(TypeList.QUEUE, null)
 
-  const updateFilmsFromStorage = () => {
+  const dispatch = useDispatch()
+
+  const updateFilmsFromStorage = useCallback(() => {
     if (!listIdWatched && !listIdQueue) return
 
     const dataResult = []
@@ -24,12 +26,11 @@ function Library() {
     if (filterQuery === TypeList.QUEUE) dataResult.push(...listIdQueue)
 
     dispatch(fetchFilmListById([...new Set(dataResult)]))
-  }
+  }, [dispatch, filterQuery, listIdQueue, listIdWatched])
 
-  const dispatch = useDispatch()
   useEffect(() => {
     updateFilmsFromStorage()
-  }, [])
+  }, [updateFilmsFromStorage])
 
   const onCloseFilmDetails = () => {
     updateFilmsFromStorage()
