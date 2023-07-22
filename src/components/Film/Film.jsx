@@ -7,6 +7,7 @@ import style from './Film.module.css'
 
 function Film({ title, poster_path, production, genres, id, onCardOpen }) {
   const pathImage = 'https://image.tmdb.org/t/p/w500'
+  const fullUrl = `${pathImage}${poster_path}`
   const getYear = () => new Date(production).getFullYear()
 
   const handleClick = () => {
@@ -18,7 +19,7 @@ function Film({ title, poster_path, production, genres, id, onCardOpen }) {
       <CardActionArea onClick={handleClick}>
         <CardMedia
           component="img"
-          image={`${pathImage}${poster_path}`}
+          image={fullUrl}
           alt="image film"
           className={style.image}
         />
@@ -26,7 +27,6 @@ function Film({ title, poster_path, production, genres, id, onCardOpen }) {
           <Typography
             fontWeight={700}
             gutterBottom
-            // variant="h5"
             component="div"
             className={style.title}
           >

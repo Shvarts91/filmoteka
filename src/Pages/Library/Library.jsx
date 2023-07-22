@@ -19,7 +19,8 @@ function Library() {
     if (!listIdWatched && !listIdQueue) return
 
     const dataResult = []
-    if (!filterQuery) dataResult.push(...listIdWatched.concat(listIdQueue))
+    if (!filterQuery)
+      dataResult.push(...[listIdWatched, listIdQueue].filter((id) => id).flat())
 
     if (filterQuery === TypeList.WATCHED) dataResult.push(...listIdWatched)
 
@@ -39,7 +40,7 @@ function Library() {
   return (
     <>
       <HeaderLibrary />
-      <Films onCloseFilmDetails={onCloseFilmDetails} />
+      <Films isLibrary onCloseFilmDetails={onCloseFilmDetails} />
     </>
   )
 }

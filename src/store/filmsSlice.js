@@ -73,9 +73,11 @@ const {
         state.error = null
       })
       .addCase(fetchSearch.fulfilled, (state, action) => {
+        const result = action.payload.results
         state.loading = false
-        state.films = action.payload.results
+        state.films = result.filter((el) => el.poster_path)
         state.totalResults = action.payload.total_results
+        state.currentPage = action.payload.page
       })
       .addCase(fetchSearch.rejected, (state, action) => {
         state.loading = false

@@ -21,6 +21,23 @@
   color: red;
 }
 
+.titleNotFilms {
+  color: rgb(255, 0, 0);
+  font-size: 30px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  margin-bottom: 20px;
+}
+
+.textNotFilms {
+  margin-bottom: 10px;
+  font-weight: 700;
+  font-size: 20px;
+}
+
+.buttonNotFilms {
+  margin-bottom: 20px;
+}
+
 @media (max-width: 898.98px) {
   .filmsElement {
     flex: 1 1 25%;

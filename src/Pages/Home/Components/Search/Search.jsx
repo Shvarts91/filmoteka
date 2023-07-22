@@ -16,7 +16,6 @@ function Search() {
   const handleSearch = (e) => {
     e.preventDefault()
     dispatch(setSearchQuery(movie.trim()))
-
     if (movie.trim()) return dispatch(fetchSearch({ value: movie }))
     dispatch(fetchMovies())
   }

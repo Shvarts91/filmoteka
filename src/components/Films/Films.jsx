@@ -4,12 +4,12 @@ import { fetchFilmById } from '../../api/api'
 import { Film } from '../Film/Film'
 import { FilmDetails } from '../FilmDetails/FilmDetails'
 import style from './Films.module.css'
+import { NotFilms } from './NotFilms'
 
-function Films({ onCloseFilmDetails }) {
+function Films({ onCloseFilmDetails, isLibrary = false }) {
   const dispatch = useDispatch()
-  const { films, genres, currentFilm, error, searchQuery } = useSelector(
-    ({ movies }) => movies
-  )
+  const { films, genres, currentFilm, error, searchQuery, loading } =
+    useSelector(({ movies }) => movies)
   const [isOpenModal, setIsOpenModal] = useState(false)
 
   const onCloseModal = () => {
@@ -30,7 +30,7 @@ function Films({ onCloseFilmDetails }) {
               <Film
                 title={title}
                 poster_path={poster_path}
-                prodaction={release_date}
+                production={release_date}
                 genres={genre_ids.map((id) => genres[id])}
                 id={id}
                 onCardOpen={onClickCard}
@@ -40,6 +40,7 @@ function Films({ onCloseFilmDetails }) {
           {!films.length && searchQuery && 'No any films by your search query'}
         </div>
         {error && <div className={style.error}>{error}</div>}
+        {!films.length && isLibrary && !loading && <NotFilms />}
       </div>
       {currentFilm.id && (
         <FilmDetails
