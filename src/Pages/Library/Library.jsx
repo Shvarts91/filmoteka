@@ -17,8 +17,7 @@ function Library() {
 
   const updateFilmsFromStorage = useCallback(() => {
     const dataResult = []
-    if (!listIdWatched && !listIdQueue)
-      dataResult.push(...[listIdWatched, listIdQueue])
+    if (!listIdWatched && !listIdQueue) return
 
     if (!filterQuery)
       dataResult.push(...[listIdWatched, listIdQueue].filter((id) => id).flat())
