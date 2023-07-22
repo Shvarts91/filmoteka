@@ -5,7 +5,7 @@ import style from './FilmDetails.module.css'
 
 function MovieListManagerButton({ name, id, keyStorage }) {
   const [hasId, setHasId] = useState(false)
-  const [listId, setListId] = useLocalStorage(keyStorage, null)
+  const [listId, setListId] = useLocalStorage(keyStorage, [])
 
   const onClickButton = () => {
     setHasId(!hasId)
