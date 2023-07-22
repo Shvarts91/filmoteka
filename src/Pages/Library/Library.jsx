@@ -5,6 +5,7 @@ import { useLocalStorage } from '../../hooks/useLocalStorage'
 import { Films } from '../../components/Films/Films'
 import { HeaderLibrary } from './Components/Header/HeaderLibrary'
 import { TypeList } from '../../constants'
+import { setFilteredList } from '../../store/filmsSlice'
 
 function Library() {
   const { filterQuery } = useSelector(({ movies }) => movies)
@@ -32,6 +33,12 @@ function Library() {
   useEffect(() => {
     updateFilmsFromStorage()
   }, [updateFilmsFromStorage])
+
+  useEffect(() => {
+    return () => {
+      dispatch(setFilteredList(''))
+    }
+  }, [dispatch])
 
   const onCloseFilmDetails = () => {
     updateFilmsFromStorage()
